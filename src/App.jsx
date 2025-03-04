@@ -116,8 +116,7 @@ function App() {
               I build things for the web.
             </h2>
             <p className="text-secondary max-w-xl mb-8">
-              I'm a FullStack developer specializing in building exceptional digital experiences.
-              Currently, I'm focused on building accessible, human-centered products.
+             I'm a Full Stack Developer passionate about creating exceptional digital experiences. Currently, I focus on building accessible, user-centric products that make a real impact.
             </p>
             <a
               href="#contact"
