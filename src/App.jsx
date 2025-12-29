@@ -133,9 +133,8 @@ function App() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-textSecondary">
               <p className="mb-4">
-                Hello! My name is Nikhil, and I enjoy creating things that live on the internet & Mobiles.
-                My interest in Software development started back in 2025.When i decide to learn how to create a websites
-                and start learning JavaScript.
+              I am a Software Developer dedicated to crafting seamless digital experiences that span the web and mobile landscape. With a focus on performance and scalable architecture, I specialize in building robust applications using Primary Language, JavaScript,  and frameworks like React.js for the web and React Native for mobile.
+              My approach combines clean code principles with a product-first mindset—ensuring that every line of code I write adds tangible value to the user experience. From architecting complex backend APIs to fine-tuning mobile UI animations, I strive to bridge the gap between technical complexity and intuitive design.
               </p>
               <p>
                 Fast-forward to today, and I've had the privilege of working at various
