@@ -134,7 +134,7 @@ function App() {
             <div className="text-textSecondary">
               <p className="mb-4">
                 Hello! My name is Nikhil, and I enjoy creating things that live on the internet.
-                My interest in web development started back in 2023.When i decide to learn how the websites is created
+                My interest in web development started back in 2025.When i decide to learn how the websites is created
                 and start learning Html,Css.
               </p>
               <p>
