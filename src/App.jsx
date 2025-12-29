@@ -133,9 +133,9 @@ function App() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-textSecondary">
               <p className="mb-4">
-                Hello! My name is Nikhil, and I enjoy creating things that live on the internet.
-                My interest in web development started back in 2025.When i decide to learn how the websites is created
-                and start learning Html,Css.
+                Hello! My name is Nikhil, and I enjoy creating things that live on the internet & Mobiles.
+                My interest in Software development started back in 2025.When i decide to learn how to create a websites
+                and start learning JavaScript.
               </p>
               <p>
                 Fast-forward to today, and I've had the privilege of working at various
