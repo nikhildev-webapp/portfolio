@@ -31,9 +31,9 @@ function App() {
   ]
 
   const skills = [
-    "HTML5", "CSS3/Sass", "JavaScript (ES6+)","TypeScript", "React",
-    "Next.Js", "Redux", "Tailwind CSS", "Git","Github",
-    "REST APIs","Node.Js","Express.Js","Databases","MongoDB","React Native"
+    "HTML5", "CSS3", "JavaScript(ES6+)","TypeScript", "React",
+    "React Native","Next.Js","Tailwind CSS", "Git","Github",
+    "REST APIs","Node.Js"
   ]
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
