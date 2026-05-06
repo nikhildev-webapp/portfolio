@@ -35,23 +35,10 @@ function App() {
   ];
 
   const skills = [
-    "HTML5",
-    "CSS3/Sass",
-    "JavaScript (ES6+)",
-    "TypeScript",
-    "React",
-    "Next.Js",
-    "Redux",
-    "Tailwind CSS",
-    "Git",
-    "Github",
-    "REST APIs",
-    "Node.Js",
-    "Express.Js",
-    "Databases",
-    "MongoDB",
-    "React Native"
-  ];
+    "HTML5", "CSS3/Sass", "JavaScript (ES6+)","TypeScript", "React",
+    "Next.Js", "Redux", "Tailwind CSS", "Git","Github",
+    "REST APIs" 
+  ]
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -136,9 +123,8 @@ function App() {
               I build things for the web.
             </h2>
             <p className="text-secondary max-w-xl mb-8">
-              I am a Full Stack Developer passionate about creating exceptional
-              digital experiences. Currently, I focus on building accessible,
-              user-centric products that make a real impact.
+              I'm a frontend developer specializing in building exceptional digital experiences.
+              Currently, I'm focused on building accessible, human-centered products.
             </p>
             <a
               href="#contact"
@@ -155,10 +141,9 @@ function App() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-textSecondary">
               <p className="mb-4">
-                Hello! My name is Nikhil, and I enjoy creating things that live
-                on the internet. My interest in web development started back in
-                2023.When i decide to learn how the websites is created and
-                start learning Html,Css.
+                Hello! My name is Nikhil, and I enjoy creating things that live on the internet.
+                My interest in web development started back in 2023.When i decide to learn how the websites is created
+                and start learning Html,Css.
               </p>
               <p>
                 Fast-forward to today, and I have had the privilege of working at
@@ -316,4 +301,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
