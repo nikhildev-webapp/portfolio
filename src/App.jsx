@@ -123,8 +123,8 @@ function App() {
               I build things for the web.
             </h2>
             <p className="text-secondary max-w-xl mb-8">
-              I'm a frontend developer specializing in building exceptional digital experiences.
-              Currently, I'm focused on building accessible, human-centered products.
+              I am a frontend developer specializing in building exceptional digital experiences.
+              Currently, I am focused on building accessible, human-centered products.
             </p>
             <a
               href="#contact"
