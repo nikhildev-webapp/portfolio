@@ -3,6 +3,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import code from "./assets/code.jpg";
+import Education from "./components/Education";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -52,7 +53,7 @@ function App() {
     }
   };
   const handleScroll = () => {
-    const sections = ["home", "about", "skills", "projects", "contact"];
+    const sections = ["home", "about", "education", "skills", "projects", "contact"];
     const navHeight = 80;
 
     for (const sectionId of sections) {
@@ -87,7 +88,7 @@ function App() {
               Portfolio
             </motion.div>
             <div className="hidden md:flex space-x-8">
-              {["home", "about", "skills", "projects", "contact"].map(
+              {["home", "about", "education", "skills", "projects", "contact"].map(
                 (item) => (
                   <button
                     key={item}
@@ -160,6 +161,9 @@ function App() {
             </div>
           </div>
         </section>
+        
+        {/* Education Section */}
+        <Education />
 
         {/* Skills Section */}
         <section id="skills" className="section-padding">
