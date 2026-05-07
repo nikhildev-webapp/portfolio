@@ -33,6 +33,20 @@ function App() {
       github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
       demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
     },
+   {
+      title: "Dynamic Content Builder",
+      description:"A powerful, intuitive React.js Web Application that allows usdr to dynamically build and customize personal content pages using draggable and configurable components.",
+      tech: ["React", "CSS"],
+      github: "https://github.com/nikhildev-webapp/Dynamice-Content-Builder",
+      demo: "https://dynamice-content-builder.vercel.app/",
+    },
+   {
+      title: "Candidate Review Dashboard",
+      description:"A modern, responsive web application for recruters to review and prioritze job candidate.Built with React, Vite, and Tailwind Css, this dashboard provides a comprehensive interface for evaluating assignments, videos, and overall condidate fits. ",
+      tech: ["React", "CSS","Tailwind CSS"],
+      github: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
+      demo: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
+    },
   ];
 
   const skills = [
