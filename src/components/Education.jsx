@@ -1,5 +1,7 @@
 
 
+import { motion } from "framer-motion";
+
 const education = [
   {
     institution: "Delhi University",
@@ -21,9 +23,14 @@ function Education() {
     <section id="education" className="section-padding">
       <h2 className="text-3xl font-bold text-cyan-500 mb-8">Education</h2>
       <div className="grid md:grid-cols-2 gap-6">
-        {education.map((edu) => (
-          <div
+        {education.map((edu, idx) => (
+          <motion.div
             key={edu.institution}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: idx * 0.08 }}
+            whileHover={{ scale: 1.03, y: -6, boxShadow: "0 14px 36px rgba(2,6,23,0.6)" }}
+            whileTap={{ scale: 0.995 }}
             className="bg-primary/50 p-4 rounded-lg border border-secondary/20"
           >
             <h3 className="text-xl font-bold text-cyan-400 mb-1">
@@ -35,7 +42,7 @@ function Education() {
             {edu.details && (
               <p className="text-textSecondary">{edu.details}</p>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
