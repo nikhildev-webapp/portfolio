@@ -31,7 +31,7 @@ function Education() {
             transition={{ duration: 0.45, delay: idx * 0.08 }}
             whileHover={{ scale: 1.03, y: -6, boxShadow: "0 14px 36px rgba(2,6,23,0.6)" }}
             whileTap={{ scale: 0.995 }}
-            className="bg-primary/50 p-4 rounded-lg border border-secondary/20"
+            className="card bg-primary/50 p-4 rounded-lg border border-secondary/20"
           >
             <h3 className="text-xl font-bold text-cyan-400 mb-1">
               {edu.institution}

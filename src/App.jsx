@@ -4,6 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import code from "./assets/code.jpg";
 import Education from "./components/Education";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -88,16 +89,33 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Navbar hide on scroll
+  const [navHidden, setNavHidden] = useState(false);
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const current = window.scrollY;
+      if (current > lastY && current > 120) {
+        setNavHidden(true);
+      } else {
+        setNavHidden(false);
+      }
+      lastY = current;
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen">
-      <nav className="fixed w-full bg-primary/90 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-6 py-4">
+      <nav className={`fixed w-full z-50 nav ${navHidden ? "nav-hidden" : "nav-visible"}`}>
+        <div className="container container-tight mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="text-cyan-500 font-bold text-2xl cursor-pointer"
+              className="text-accent font-bold text-2xl cursor-pointer"
             >
               Portfolio
             </motion.div>
@@ -118,6 +136,9 @@ function App() {
                 )
               )}
             </div>
+            <div className="ml-4">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </nav>
@@ -131,20 +152,17 @@ function App() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-cyan-200 mb-4 text-xl">Hi, my name is</p>
-            <h1 className="text-5xl md:text-7xl font-bold text-cyan-500 mb-4">
-              Nikhil kholiya
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-text mb-3">
+              Nikhil Kholiya
             </h1>
-            <h2 className="text-4xl md:text-6xl font-bold text-secondary mb-6">
-              I build things for the web.
+            <h2 className="text-2xl md:text-3xl font-semibold text-muted mb-6">
+              Frontend Developer focused on modern, accessible web apps
             </h2>
             <p className="text-secondary max-w-xl mb-8">
               I am a frontend developer specializing in building exceptional digital experiences.
               Currently, I am focused on building accessible, human-centered products.
             </p>
-            <a
-              href="#contact"
-              className="inline-block px-8 py-3 border-2 border-cyan-400 text-secondary hover:border-cyan-500 transition-colors rounded"
-            >
+            <a href="#contact" className="btn-primary">
               Get In Touch
             </a>
           </motion.div>
@@ -191,7 +209,7 @@ function App() {
                 whileHover={{ scale: 1.06, y: -6, boxShadow: "0 14px 40px rgba(2,6,23,0.6)" }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 260, damping: 22, delay: index * 0.1 }}
-                className="bg-primary/50 p-4 rounded-lg border border-cyan-500 transition-colors"
+                className="card bg-primary/50 p-4 rounded-lg border border-cyan-500 transition-colors"
               >
                 <p className="text-cyan-200 text-center cursor-pointer">
                   {skill}
@@ -206,7 +224,7 @@ function App() {
           <h2 className="text-3xl font-bold text-cyan-500 mb-8">
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 hover:cursor-pointer">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hover:cursor-pointer">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -215,7 +233,7 @@ function App() {
                 whileHover={{ scale: 1.04, y: -10, boxShadow: "0 18px 50px rgba(2,6,23,0.65)" }}
                 whileTap={{ scale: 0.99 }}
                 transition={{ type: "spring", stiffness: 240, damping: 20, delay: index * 0.1 }}
-                className="bg-primary/50 p-4 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
+                className="card bg-primary/50 p-4 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
               >
                 <h3 className="text-xl font-bold text-cyan-400 mb-2">
                   {project.title}
