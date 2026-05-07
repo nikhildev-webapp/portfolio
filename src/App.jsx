@@ -45,7 +45,7 @@ function App() {
       description:"A modern, responsive web application for recruters to review and prioritze job candidate.Built with React, Vite, and Tailwind Css, this dashboard provides a comprehensive interface for evaluating assignments, videos, and overall condidate fits. ",
       tech: ["React", "CSS","Tailwind CSS"],
       github: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
-      demo: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
+      demo:"https://dapper-frangipane-825164.netlify.app/",
     },
   ];
 
