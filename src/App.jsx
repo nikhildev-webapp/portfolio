@@ -186,9 +186,9 @@ function App() {
               </p>
             </div>
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-secondary opacity-75 rounded-lg blur"></div>
-              <div className="relative bg-primary p-4 rounded-lg">
-                <img src={code} alt="Profile" className="rounded-lg w-full " />
+              <div className="absolute -inset-0.5 bg-secondary opacity-60 rounded-lg blur"></div>
+              <div className="card p-2">
+                <img src={code} alt="Profile" className="rounded-lg w-full" />
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.06, y: -6, boxShadow: "0 14px 40px rgba(2,6,23,0.6)" }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22, delay: index * 0.1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 24, delay: index * 0.08 }}
                 className="card bg-primary/50 p-4 rounded-lg border border-cyan-500 transition-colors"
               >
                 <p className="text-cyan-200 text-center cursor-pointer">
@@ -232,7 +232,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.04, y: -10, boxShadow: "0 18px 50px rgba(2,6,23,0.65)" }}
                 whileTap={{ scale: 0.99 }}
-                transition={{ type: "spring", stiffness: 240, damping: 20, delay: index * 0.1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 22, delay: index * 0.08 }}
                 className="card bg-primary/50 p-4 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
               >
                 <h3 className="text-xl font-bold text-cyan-400 mb-2">
@@ -241,10 +241,7 @@ function App() {
                 <p className="mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-secondary text-sm px-2 py-1 rounded-full bg-cyan-600 text-white font"
-                    >
+                    <span key={tech} className="chip">
                       {tech}
                     </span>
                   ))}
@@ -319,15 +316,12 @@ function App() {
               </a>
             </div>
             <div className="flex justify-center gap-4">
-              <a
-                href="mailto:nikhilkholiya59@gmail.com"
-                className="inline-block px-8 py-3 border-2 border-cyan-400 text-cyan-100 transition-colors rounded"
-              >
+              <a href="mailto:nikhilkholiya59@gmail.com" className="contact-btn mr-3">
                 Say Hello
               </a>
               <a
                 href="https://wa.me/917291953428"
-                className="inline-block px-8 py-3 border-2 border-green-500 text-white bg-green-600 hover:bg-green-700 transition-colors rounded"
+                className="contact-btn"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -25,6 +25,7 @@ function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle theme"
       whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05, rotate: 12 }}
       className="p-2 rounded-md"
       title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
     >

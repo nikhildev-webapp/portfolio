@@ -28,7 +28,7 @@ function Education() {
             key={edu.institution}
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: idx * 0.08 }}
+            transition={{ type: "spring", stiffness: 200, damping: 24, delay: idx * 0.08 }}
             whileHover={{ scale: 1.03, y: -6, boxShadow: "0 14px 36px rgba(2,6,23,0.6)" }}
             whileTap={{ scale: 0.995 }}
             className="card bg-primary/50 p-4 rounded-lg border border-secondary/20"
