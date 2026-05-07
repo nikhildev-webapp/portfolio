@@ -6,7 +6,7 @@ const education = [
     degree: "B.Com. in Computer Application",
     period: "2022 — 2025",
     details:
-      "Relevant coursework: Fundamentals Of Computer & IT,Programming in Python,Web Developement.Commerce.",
+      "Relevant coursework: Fundamentals Of Computer & IT,Programming in Python,Web Developement,Commerce.",
   },
   {
     institution: "DICS COMPUTER EDUCATION",
@@ -24,7 +24,7 @@ function Education() {
         {education.map((edu) => (
           <div
             key={edu.institution}
-            className="bg-primary/50 p-6 rounded-lg border border-secondary/20"
+            className="bg-primary/50 p-4 rounded-lg border border-secondary/20"
           >
             <h3 className="text-xl font-bold text-cyan-400 mb-1">
               {edu.institution}

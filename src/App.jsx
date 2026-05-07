@@ -37,8 +37,8 @@ function App() {
 
   const skills = [
     "HTML5", "CSS3/Sass", "JavaScript (ES6+)","TypeScript", "React",
-    "Next.Js", "Redux", "Tailwind CSS", "Git","Github",
-    "REST APIs" 
+    "Next.Js", "React Native", "Tailwind CSS", "Git","Github",
+    "REST APIs","Node.js" 
   ]
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -110,7 +110,7 @@ function App() {
 
       <main className="container mx-auto px-6">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center pt-20">
+        <section id="home" className="min-h-screen flex items-center pt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,14 +190,14 @@ function App() {
           <h2 className="text-3xl font-bold text-cyan-500 mb-8">
             Featured Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hover:cursor-pointer">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 hover:cursor-pointer">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-primary/50 p-6 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
+                className="bg-primary/50 p-4 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
               >
                 <h3 className="text-xl font-bold text-cyan-400 mb-2">
                   {project.title}
@@ -239,7 +239,7 @@ function App() {
         {/* Contact Section */}
         <section
           id="contact"
-          className="section-padding min-h-screen flex flex-col justify-center"
+          className="section-padding flex flex-col justify-center"
         >
           <div className="text-center">
             <h2 className="text-3xl font-bold text-cyan-500 mb-4">
