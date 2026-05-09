@@ -16,7 +16,7 @@ function App() {
         "Xora is a Modern UI/UX SaaS website developed using React.js and Tailwind CSS",
       tech: ["React", "Tailwind Css"],
       github: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
-     
+      demo: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
     },
     {
       title: "Travel Website",
@@ -24,6 +24,7 @@ function App() {
         "This travel website's user interface is designed to inspire exploration and make trip planning simple and engaging. It features a modern, minimalist layout powered by Next.js, TypeScript, and Tailwind CSS.",
       tech: ["Next.Js", "Typescript", "Tailwind CSS"],
       github: "https://github.com/nikhildev-webapp/travel-website",
+      demo: "https://github.com/nikhildev-webapp/travel-website",
     },
     {
       title: "Edusity College UI",
@@ -31,8 +32,7 @@ function App() {
         "The website aims to provide a user-friendly and informative online presence for the college, showcasing its programs, faculty, campus, and admissions information.",
       tech: ["React", "CSS"],
       github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
-     
-      
+      demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
     },
    {
       title: "Dynamic Content Builder",
