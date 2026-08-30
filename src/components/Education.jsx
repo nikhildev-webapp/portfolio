@@ -8,7 +8,7 @@ const education = [
     degree: "Bachelor In Commerce",
     period: "2022 — 2025",
     details:
-      "Relevant coursework: Fundamentals Of Commerce, Programming, Analyt, and Basic It Tools.",
+      "Relevant coursework: Fundamentals Of Commerce, Programming, Analytic, and Basic It Tools.",
   },
   {
     institution: "DICS COMPUTER EDUCATION",
