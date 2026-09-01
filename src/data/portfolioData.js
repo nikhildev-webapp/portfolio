@@ -29,7 +29,7 @@ export const projects = [
       "A polished SaaS landing experience built with React and Tailwind CSS, focused on conversion, clarity, and premium product storytelling.",
     tech: ["React", "Tailwind CSS"],
     github: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
-    demo: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
+    demo: "https://flourishing-banoffee-f56d35.netlify.app/",
   },
   {
     title: "Travel Website",
@@ -37,7 +37,7 @@ export const projects = [
       "A travel brand website designed to make discovery and booking feel effortless, immersive, and mobile-friendly.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/nikhildev-webapp/travel-website",
-    demo: "https://github.com/nikhildev-webapp/travel-website",
+    demo: "https://travel-website-eight-rho.vercel.app/",
   },
   {
     title: "Edusity College UI",
@@ -45,7 +45,7 @@ export const projects = [
       "An academic website experience that highlights programs, faculty, campus life, and admissions in a clean, modern interface.",
     tech: ["React", "CSS"],
     github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
-    demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
+    demo: "https://magnificent-moonbeam-5dc963.netlify.app/",
   },
   {
     title: "Dynamic Content Builder",
