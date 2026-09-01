@@ -1,338 +1,138 @@
-import { useState, useEffect } from "react";
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
+﻿import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import code from "./assets/code.jpg";
 import Education from "./components/Education";
 import ThemeToggle from "./components/ThemeToggle";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import SkillsSection from "./components/SkillsSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactSection from "./components/ContactSection";
+import { navItems } from "./data/portfolioData";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+  const [navHidden, setNavHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const projects = [
-    {
-      title: "Xora Ai Saas Page",
-      description:
-        "Xora is a Modern UI/UX SaaS website developed using React.js and Tailwind CSS",
-      tech: ["React", "Tailwind Css"],
-      github: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
-      demo: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
-    },
-    {
-      title: "Travel Website",
-      description:
-        "This travel website's user interface is designed to inspire exploration and make trip planning simple and engaging. It features a modern, minimalist layout powered by Next.js, TypeScript, and Tailwind CSS.",
-      tech: ["Next.Js", "Typescript", "Tailwind CSS"],
-      github: "https://github.com/nikhildev-webapp/travel-website",
-      demo: "https://github.com/nikhildev-webapp/travel-website",
-    },
-    {
-      title: "Edusity College UI",
-      description:
-        "The website aims to provide a user-friendly and informative online presence for the college, showcasing its programs, faculty, campus, and admissions information.",
-      tech: ["React", "CSS"],
-      github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
-      demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
-    },
-   {
-      title: "Dynamic Content Builder",
-      description:"A powerful, intuitive React.js Web Application that allows usdr to dynamically build and customize personal content pages using draggable and configurable components.",
-      tech: ["React", "CSS"],
-      github: "https://github.com/nikhildev-webapp/Dynamice-Content-Builder",
-      demo: "https://dynamice-content-builder.vercel.app/",
-    },
-   {
-      title: "Candidate Review Dashboard",
-      description:"A modern, responsive web application for recruters to review and prioritze job candidate.Built with React, Vite, and Tailwind Css, this dashboard provides a comprehensive interface for evaluating assignments, videos, and overall condidate fits. ",
-      tech: ["React", "CSS","Tailwind CSS"],
-      github: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
-      demo:"https://dapper-frangipane-825164.netlify.app/",
-    },
-  ];
-
-  const skills = [
-    "HTML5", "CSS3/Sass", "JavaScript (ES6+)","TypeScript", "React",
-    "Next.Js", "React Native", "Tailwind CSS", "Git","Github",
-    "REST APIs","Node.js" 
-  ]
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      const navHeight = 80; // Approximate navbar height
-      const elementPosition = element.offsetTop - navHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
+    if (!element) {
+      return;
     }
-  };
-  const handleScroll = () => {
-    const sections = ["home", "about", "education", "skills", "projects", "contact"];
-    const navHeight = 80;
 
-    for (const sectionId of sections) {
-      const element = document.getElementById(sectionId);
-      if (element) {
+    const navHeight = 88;
+    window.scrollTo({
+      top: element.offsetTop - navHeight,
+      behavior: "smooth",
+    });
+
+    setActiveSection(sectionId);
+    setMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "education", "skills", "projects", "contact"];
+      const navHeight = 88;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (!element) continue;
+
         const rect = element.getBoundingClientRect();
         if (rect.top <= navHeight && rect.bottom > navHeight) {
           setActiveSection(sectionId);
           break;
         }
       }
-    }
-  };
+    };
 
-  // Add scroll event listener
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Navbar hide on scroll
-  const [navHidden, setNavHidden] = useState(false);
   useEffect(() => {
     let lastY = window.scrollY;
-    const onScroll = () => {
+
+    const handleNavState = () => {
       const current = window.scrollY;
-      if (current > lastY && current > 120) {
-        setNavHidden(true);
-      } else {
-        setNavHidden(false);
-      }
+      setNavHidden(current > lastY && current > 120);
       lastY = current;
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", handleNavState, { passive: true });
+    return () => window.removeEventListener("scroll", handleNavState);
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <nav className={`fixed w-full z-50 nav ${navHidden ? "nav-hidden" : "nav-visible"}`}>
-        <div className="container container-tight mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-accent font-bold text-2xl cursor-pointer"
+    <div className="page-shell">
+      <header className={`topbar ${navHidden ? "topbar-hidden" : "topbar-visible"}`}>
+        <div className="container">
+          <div className="nav-row">
+            <motion.button
+              type="button"
+              className="brand"
+              onClick={() => scrollToSection("home")}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              Portfolio
-            </motion.div>
-            <div className="hidden md:flex space-x-8">
-              {["home", "about", "education", "skills", "projects", "contact"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className={`capitalize ${
-                      activeSection === item
-                        ? "text-secondary"
-                        : "text-textPrimary"
-                    } hover:text-secondary transition-colors cursor-pointer`}
-                  >
-                    {item}
-                  </button>
-                )
-              )}
-            </div>
-            <div className="ml-4">
+              Nikhil
+            </motion.button>
+
+            <nav className="desktop-nav" aria-label="Main navigation">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={activeSection === item.id ? "nav-link active" : "nav-link"}
+                  onClick={() => scrollToSection(item.id)}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+
+            <div className="nav-actions">
               <ThemeToggle />
+              <button
+                type="button"
+                className="mobile-menu-button"
+                aria-label="Toggle navigation menu"
+                onClick={() => setMenuOpen((prev) => !prev)}
+              >
+                {menuOpen ? "✕" : "☰"}
+              </button>
             </div>
           </div>
+
+          {menuOpen && (
+            <nav className="mobile-nav" aria-label="Mobile navigation">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={activeSection === item.id ? "nav-link active" : "nav-link"}
+                  onClick={() => scrollToSection(item.id)}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          )}
         </div>
-      </nav>
+      </header>
 
-      <main className="container mx-auto px-6">
-        {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center pt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-cyan-200 mb-4 text-xl">Hi, my name is</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-text mb-3">
-              Nikhil Kholiya
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-muted mb-6">
-              Frontend Developer focused on modern, accessible web apps
-            </h2>
-            <p className="text-secondary max-w-xl mb-8">
-              I am a frontend developer specializing in building exceptional digital experiences.
-              Currently, I am focused on building accessible, human-centered products.
-            </p>
-            <a href="#contact" className="btn-primary">
-              Get In Touch
-            </a>
-          </motion.div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="section-padding">
-          <h2 className="text-3xl font-bold text-cyan-500 mb-8">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="text-textSecondary">
-              <p className="mb-4">
-                Hello! My name is Nikhil, and I enjoy creating things that live on the internet.
-                My interest in web development started back in 2023.When i decide to learn how the websites is created
-                and start learning Html,Css.
-              </p>
-              <p>
-                Fast-forward to today, and I have had the privilege of working at
-                various companies, from startups to large corporations. My main
-                focus these days is building accessible, inclusive products and
-                digital experiences.
-              </p>
-            </div>
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-secondary opacity-60 rounded-lg blur"></div>
-              <div className="card p-2">
-                <img src={code} alt="Profile" className="rounded-lg w-full" />
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Education Section */}
+      <main>
+        <HeroSection onNavClick={scrollToSection} />
+        <AboutSection />
         <Education />
-
-        {/* Skills Section */}
-        <section id="skills" className="section-padding">
-          <h2 className="text-3xl font-bold text-cyan-500 mb-8">Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.06, y: -6, boxShadow: "0 14px 40px rgba(2,6,23,0.6)" }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 200, damping: 24, delay: index * 0.08 }}
-                className="card bg-primary/50 p-4 rounded-lg border border-cyan-500 transition-colors"
-              >
-                <p className="text-cyan-200 text-center cursor-pointer">
-                  {skill}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="section-padding">
-          <h2 className="text-3xl font-bold text-cyan-500 mb-8">
-            Featured Projects
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hover:cursor-pointer">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.04, y: -10, boxShadow: "0 18px 50px rgba(2,6,23,0.65)" }}
-                whileTap={{ scale: 0.99 }}
-                transition={{ type: "spring", stiffness: 200, damping: 22, delay: index * 0.08 }}
-                className="card bg-primary/50 p-4 rounded-lg border border-secondary/20 hover:border-secondary/50 transition-colors"
-              >
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">
-                  {project.title}
-                </h3>
-                <p className="mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="chip">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    className="text-cyan-200 hover:text-secondary transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FiGithub size={20} />
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="text-cyan-200 hover:text-secondary transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Demo
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section
-          id="contact"
-          className="section-padding flex flex-col justify-center"
-        >
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-cyan-500 mb-4">
-              Get In Touch
-            </h2>
-            <p className="text-cyan-200 max-w-md mx-auto mb-8">
-              I am currently looking for new opportunities. Whether you have a
-              question or just want to say hi, I will try my best to get back to
-              you!
-            </p>
-            <div className="flex justify-center gap-6 mb-8">
-              <a
-                href="https://github.com/nikhildev-webapp"
-                className="text-cyan-500 hover:text-cyan-600 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FiGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nikhil-kholiya-b220b3259"
-                className="text-cyan-500 hover:text-cyan-600 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FiLinkedin size={24} />
-              </a>
-              <a
-                href="mailto:nikhilkholiya59@gmail.com"
-                className="text-cyan-500 hover:text-cyan-600  transition-colors"
-              >
-                <FiMail size={24} />
-              </a>
-              <a
-                href="https://wa.me/917291953428"
-                className="text-cyan-500 hover:text-cyan-600 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp size={24} />
-              </a>
-            </div>
-            <div className="flex justify-center gap-4">
-              <a href="mailto:nikhilkholiya59@gmail.com" className="contact-btn mr-3">
-                Say Hello
-              </a>
-              <a
-                href="https://wa.me/917291953428"
-                className="contact-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
-          </div>
-        </section>
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
       </main>
     </div>
   );
 }
 
-export default App
+export default App;

@@ -1,6 +1,5 @@
-
-
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
+import SectionTitle from "./SectionTitle";
 
 const education = [
   {
@@ -8,42 +7,43 @@ const education = [
     degree: "B.Com. in Computer Application",
     period: "2022 — 2025",
     details:
-      "Relevant coursework: Fundamentals Of Computer & IT,Programming in Python,Web Developement,Commerce.",
+      "Relevant coursework includes Fundamentals of Computer & IT, Programming in Python, Web Development, and Commerce fundamentals.",
   },
   {
-    institution: "DICS COMPUTER EDUCATION",
+    institution: "DICS Computer Education",
     degree: "Diploma",
     period: "2023 — 2025",
-    details: "Graduated with honors.",
+    details: "Focused on practical digital skills and foundational training in modern web and computer-based workflows.",
   },
 ];
 
 function Education() {
   return (
-    <section id="education" className="section-padding">
-      <h2 className="text-3xl font-bold text-cyan-500 mb-8">Education</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {education.map((edu, idx) => (
-          <motion.div
-            key={edu.institution}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 24, delay: idx * 0.08 }}
-            whileHover={{ scale: 1.03, y: -6, boxShadow: "0 14px 36px rgba(2,6,23,0.6)" }}
-            whileTap={{ scale: 0.995 }}
-            className="card bg-primary/50 p-4 rounded-lg border border-secondary/20"
-          >
-            <h3 className="text-xl font-bold text-cyan-400 mb-1">
-              {edu.institution}
-            </h3>
-            <p className="text-secondary mb-2">
-              {edu.degree} • <span className="text-cyan-200">{edu.period}</span>
-            </p>
-            {edu.details && (
-              <p className="text-textSecondary">{edu.details}</p>
-            )}
-          </motion.div>
-        ))}
+    <section id="education" className="section">
+      <div className="container">
+        <SectionTitle
+          eyebrow="Education"
+          title="Academic foundations that support my design and development work."
+          description="My learning path has combined business understanding, technical exposure, and hands-on project practice to shape a balanced frontend skill set."
+        />
+
+        <div className="edu-grid">
+          {education.map((edu, index) => (
+            <motion.article
+              key={edu.institution}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="glass-card edu-card"
+            >
+              <span className="edu-period">{edu.period}</span>
+              <h3>{edu.institution}</h3>
+              <p className="edu-degree">{edu.degree}</p>
+              {edu.details && <p className="edu-details">{edu.details}</p>}
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );
