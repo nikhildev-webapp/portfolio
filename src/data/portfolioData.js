@@ -47,14 +47,7 @@ export const projects = [
     github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
     demo: "https://magnificent-moonbeam-5dc963.netlify.app/",
   },
-  {
-    title: "Dynamic Content Builder",
-    description:
-      "A flexible drag-and-drop content designer that lets users build custom pages from modular sections and interactive blocks.",
-    tech: ["React", "CSS"],
-    github: "https://github.com/nikhildev-webapp/Dynamice-Content-Builder",
-    demo: "https://dynamice-content-builder.vercel.app/",
-  },
+,
   {
     title: "Candidate Review Dashboard",
     description:
@@ -63,6 +56,14 @@ export const projects = [
     github: "https://github.com/nikhildev-webapp/Canddate-Review-Dashboard",
     demo: "https://dapper-frangipane-825164.netlify.app/",
   },
+    {
+    title: "Dynamic Content Builder",
+    description:
+      "A flexible drag-and-drop content designer that lets users build custom pages from modular sections and interactive blocks.",
+    tech: ["React", "CSS"],
+    github: "https://github.com/nikhildev-webapp/Dynamice-Content-Builder",
+    demo: "https://dynamice-content-builder.vercel.app/",
+  }
 ];
 
 export const stats = [
