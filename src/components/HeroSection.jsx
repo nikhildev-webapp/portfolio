@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -78,5 +79,9 @@ function HeroSection({ onNavClick }) {
     </section>
   );
 }
+
+HeroSection.propTypes = {
+  onNavClick: PropTypes.func.isRequired,
+};
 
 export default HeroSection;

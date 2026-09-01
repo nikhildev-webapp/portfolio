@@ -4,14 +4,10 @@ import SectionTitle from "./SectionTitle";
 const education = [
   {
     institution: "Delhi University",
-    degree: "Bachelor In Commerce",
+    degree: "B.Com. in Computer Application",
     period: "2022 — 2025",
     details:
-<<<<<<< HEAD
       "Relevant coursework includes Fundamentals of Computer & IT, Programming in Python, Web Development, and Commerce fundamentals.",
-=======
-      "Relevant coursework: Fundamentals Of Commerce, Programming, Analytic, and Basic It Tools.",
->>>>>>> cd9bbf28724b9daa2522c894998ea89e6e63d60a
   },
   {
     institution: "DICS Computer Education",

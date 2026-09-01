@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiSun, FiMoon } from "react-icons/fi";
 
@@ -6,7 +6,8 @@ function ThemeToggle() {
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem("theme") || "dark";
-    } catch {
+    } catch (error) {
+      console.warn("Theme initialization failed:", error);
       return "dark";
     }
   });
@@ -15,7 +16,9 @@ function ThemeToggle() {
     document.documentElement.setAttribute("data-theme", theme);
     try {
       localStorage.setItem("theme", theme);
-    } catch {}
+    } catch (error) {
+      console.warn("Theme persistence unavailable:", error);
+    }
   }, [theme]);
 
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function SectionTitle({ eyebrow, title, description, align = "left" }) {
   return (
     <div className={`section-heading ${align === "center" ? "text-center" : "text-left"}`}>
@@ -7,5 +9,12 @@ function SectionTitle({ eyebrow, title, description, align = "left" }) {
     </div>
   );
 }
+
+SectionTitle.propTypes = {
+  eyebrow: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  align: PropTypes.oneOf(["left", "center"]),
+};
 
 export default SectionTitle;
