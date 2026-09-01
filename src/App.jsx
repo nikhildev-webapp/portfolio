@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Education from "./components/Education";
 import ThemeToggle from "./components/ThemeToggle";
@@ -13,6 +13,7 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [navHidden, setNavHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -28,6 +29,7 @@ function App() {
 
     setActiveSection(sectionId);
     setMenuOpen(false);
+    setNavHidden(false);
   };
 
   useEffect(() => {
@@ -52,17 +54,21 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let lastY = window.scrollY;
-
     const handleNavState = () => {
       const current = window.scrollY;
-      setNavHidden(current > lastY && current > 120);
-      lastY = current;
+
+      if (menuOpen || current <= 20) {
+        setNavHidden(false);
+      } else {
+        setNavHidden(current > lastScrollY.current && current > 90);
+      }
+
+      lastScrollY.current = current;
     };
 
     window.addEventListener("scroll", handleNavState, { passive: true });
     return () => window.removeEventListener("scroll", handleNavState);
-  }, []);
+  }, [menuOpen]);
 
   return (
     <div className="page-shell">

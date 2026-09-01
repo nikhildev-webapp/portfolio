@@ -98,6 +98,27 @@ main {
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(115, 224, 255, 0.26);
+  box-shadow: var(--shadow);
+}
+
+button,
+a,
+.social-link,
+.nav-link,
+.skill-pill,
+.tech-pill,
+.primary-btn,
+.secondary-btn,
+.project-links a,
+.brand,
+.mobile-menu-button {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease, opacity 0.22s ease;
 }
 
 .topbar {
@@ -152,6 +173,11 @@ main {
   color: var(--text-strong);
 }
 
+.brand:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -164,7 +190,7 @@ main {
   color: var(--muted);
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-link:hover,
@@ -172,6 +198,7 @@ main {
   background: var(--accent-soft);
   border-color: rgba(115, 224, 255, 0.22);
   color: var(--text-strong);
+  transform: translateY(-1px);
 }
 
 .nav-actions {
@@ -188,6 +215,12 @@ main {
   border: 1px solid var(--border);
   background: var(--surface-soft);
   color: var(--text-strong);
+}
+
+.mobile-menu-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(115, 224, 255, 0.4);
+  background: rgba(115, 224, 255, 0.08);
 }
 
 .hero-section {
@@ -271,6 +304,7 @@ main {
 .primary-btn:hover,
 .secondary-btn:hover {
   transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(115, 224, 255, 0.2);
 }
 
 .social-row {
@@ -303,9 +337,10 @@ main {
 }
 
 .social-link:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.04);
   border-color: rgba(115, 224, 255, 0.4);
-  background: rgba(115, 224, 255, 0.06);
+  background: rgba(115, 224, 255, 0.08);
+  box-shadow: 0 12px 24px rgba(115, 224, 255, 0.14);
 }
 
 .hero-visual {
@@ -497,15 +532,50 @@ main {
 
 .skill-pill,
 .tech-pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 0.9rem;
+  padding: 0.7rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
   color: var(--text-strong);
   font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  overflow: hidden;
+}
+
+.skill-pill::before,
+.tech-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(115, 224, 255, 0.18), rgba(139, 92, 246, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.skill-pill:hover,
+.tech-pill:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(115, 224, 255, 0.4);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+  color: var(--accent);
+}
+
+.skill-pill:hover::before,
+.tech-pill:hover::before {
+  opacity: 1;
+}
+
+.skill-pill > *,
+.tech-pill > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card {
@@ -541,6 +611,12 @@ main {
   border: 1px solid var(--border);
   color: var(--text-strong);
   background: rgba(255, 255, 255, 0.02);
+}
+
+.project-links a:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(115, 224, 255, 0.38);
+  background: rgba(115, 224, 255, 0.08);
 }
 
 .project-card h3 {
