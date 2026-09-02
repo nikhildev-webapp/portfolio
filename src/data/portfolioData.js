@@ -50,8 +50,7 @@ export const projects = [
     github: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
     demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
   },
-,
-  {
+{
     id: 4,
     title: "Candidate Review Dashboard",
     description:

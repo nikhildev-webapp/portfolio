@@ -14,17 +14,17 @@ function ProjectsSection() {
         />
 
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.article
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: index * 0.08 }}
+              transition={{ duration: 0.35, delay: (project.id - 1) * 0.08 }}
               whileHover={{ y: -8 }}
               className="project-card glass-card"
             >
               <div className="project-header">
-                <span className="project-index">0{index + 1}</span>
+                <span className="project-index">0{project.id}</span>
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`}>
                     <FiGithub size={18} />
