@@ -24,6 +24,7 @@ export const skills = [
 
 export const projects = [
   {
+    id:1,
     title: "Xora AI SaaS Page",
     description:
       "A polished SaaS landing experience built with React and Tailwind CSS, focused on conversion, clarity, and premium product storytelling.",
@@ -32,6 +33,7 @@ export const projects = [
     demo: "https://github.com/nikhildev-webapp/XORA-Sass-Landing-Page",
   },
   {
+    id:2,
     title: "Travel Website",
     description:
       "A travel brand website designed to make discovery and booking feel effortless, immersive, and mobile-friendly.",
@@ -40,6 +42,7 @@ export const projects = [
     demo: "https://github.com/nikhildev-webapp/travel-website",
   },
   {
+    id:3,
     title: "Edusity College UI",
     description:
       "An academic website experience that highlights programs, faculty, campus life, and admissions in a clean, modern interface.",
@@ -48,6 +51,7 @@ export const projects = [
     demo: "https://github.com/nikhildev-webapp/-Edusity-College-Website",
   },
   {
+    id:4,
     title: "Dynamic Content Builder",
     description:
       "A flexible drag-and-drop content designer that lets users build custom pages from modular sections and interactive blocks.",
@@ -56,6 +60,7 @@ export const projects = [
     demo: "https://dynamice-content-builder.vercel.app/",
   },
   {
+    id:5,
     title: "Candidate Review Dashboard",
     description:
       "A responsive recruiting dashboard created to evaluate candidates, assignments, and overall fit through a clear visual workflow.",
