@@ -24,7 +24,7 @@ function ProjectsSection() {
               className="project-card glass-card"
             >
               <div className="project-header">
-                <span className="project-index">0{index + 1}</span>
+                <span className="project-index">{index + 1}</span>
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noreferrer" aria-label={`View ${project.title} on GitHub`}>
                     <FiGithub size={18} />
